@@ -1,4 +1,4 @@
-import "@testing-library/jest-dom";
+
 import React from "react";
 function App() {
   return <div className="text-red-400">hello world</div>;
