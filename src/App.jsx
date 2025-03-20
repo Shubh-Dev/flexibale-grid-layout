@@ -1,7 +1,7 @@
+import "@testing-library/jest-dom";
+import React from "react";
 function App() {
-  return (
-   <div className="text-red-400">Hello World</div>
-  )
+  return <div className="text-red-400">hello world</div>;
 }
 
-export default App
+export default App;
