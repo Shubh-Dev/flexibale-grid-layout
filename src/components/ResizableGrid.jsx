@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import RGL, { WidthProvider } from "react-grid-layout";
-import "react-grid-layout/css/styles.css";
-import "react-resizable/css/styles.css";
 
 const ReactGridLayout = WidthProvider(RGL);
 
 const ResizableGrid = ({ data = [] }) => {
   const [layout, setLayout] = useState([{ i: "main", x: 0, y: 0, w: 3, h: 2 }]);
+  
 
   return (
     <div className="w-full h-full p-4">
@@ -28,7 +27,7 @@ const ResizableGrid = ({ data = [] }) => {
           {data.map((item, index) => (
             <div
               key={index}
-              className="p-2 m-2 border rounded-lg bg-white shadow"
+              className="p-2 m-2 border border-red-500 rounded-lg bg-white shadow"
             >
               <div className="font-bold">{item.label}</div>
               <div>{item.value}</div>
