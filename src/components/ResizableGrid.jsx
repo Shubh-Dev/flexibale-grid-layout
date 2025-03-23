@@ -17,35 +17,33 @@ const ResizableGrid = ({ data = [] }) => {
   };
 
   return (
-    <div className="w-full h-full p-4">
-      <ReactGridLayout
-        className="layout"
-        layout={layout}
-        cols={6} // Increase grid resolution
-        rowHeight={100}
-        width={800}
-        onLayoutChange={(newLayout) => setLayout(newLayout)}
-        onResize={handleResize} // Use onResizeStop instead of ResizeObserver
-        isResizable
-        isDraggable
+    <ReactGridLayout
+      className="layout border border-red-600 "
+      layout={layout}
+      cols={6} // Increase grid resolution
+      rowHeight={100}
+      width={800}
+      onLayoutChange={(newLayout) => setLayout(newLayout)}
+      onResize={handleResize} // Use onResizeStop instead of ResizeObserver
+      isResizable
+      isDraggable
+    >
+      <div
+        key="main"
+        className="flex flex-wrap items-center justify-center border bg-gray-100 rounded-lg p-2 text-center w-full"
+        style={{ fontSize: `${fontSize}px` }}
       >
-        <div
-          key="main"
-          className="flex flex-wrap items-center justify-center border bg-gray-100 rounded-lg p-2 text-center w-full h-full"
-          style={{ fontSize: `${fontSize}px` }}
-        >
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="p-2 m-2 border border-red-500 rounded-lg bg-white shadow"
-            >
-              <div className="font-bold">{item.label}</div>
-              <div>{item.value}</div>
-            </div>
-          ))}
-        </div>
-      </ReactGridLayout>
-    </div>
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className="p-2 m-2 border border-red-500 rounded-lg bg-white shadow"
+          >
+            <div className="font-bold">{item.label}</div>
+            <div>{item.value}</div>
+          </div>
+        ))}
+      </div>
+    </ReactGridLayout>
   );
 };
 
