@@ -10,7 +10,6 @@ function App() {
     { label: "Short", value: 987.65 },
     { label: "Another Example", value: 456.78 },
     { label: "Last One Here", value: 7890.12 },
-   
   ];
 
   const singleSeries = [{ label: "Short", value: 987.65 }];
