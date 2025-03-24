@@ -4,10 +4,12 @@ import RGL, { WidthProvider } from "react-grid-layout";
 const ReactGridLayout = WidthProvider(RGL);
 
 const ResizableGrid = ({ data = [] }) => {
+  // Initial layout configuration
   const [layout, setLayout] = useState([{ i: "main", x: 0, y: 0, w: 4, h: 2 }]);
   const [labelFontSize, setLabelFontSize] = useState(16);
   const [valueFontSize, setValueFontSize] = useState(16);
 
+  // Adjust font size dynamically while resizing
   const handleResize = (layout, oldItem, newItem) => {
     const newLabelFontSize = Math.max(12, Math.min(32, newItem.w * 5));
     setLabelFontSize(newLabelFontSize);
@@ -15,29 +17,22 @@ const ResizableGrid = ({ data = [] }) => {
     // Value font size scales dynamically with both width and height
     const newValueFontSize = Math.max(12, newItem.w * 6, newItem.h * 10);
     setValueFontSize(newValueFontSize);
-
-//     const newLabelFontSize = Math.max(8, newItem.w * 3); // Allow smaller sizes
-// setLabelFontSize(newLabelFontSize);
-
-// const newValueFontSize = Math.max(8, newItem.w * 4, newItem.h * 6); // Scale with height too
-// setValueFontSize(newValueFontSize);
-
   };
 
   return (
     <div className="max-w-auto max-h-auto">
       <ReactGridLayout
         className="layout"
-        layout={layout}
-        cols={7}
-        rowHeight={100}
-        width={800}
-        onLayoutChange={(newLayout) => setLayout(newLayout)}
+        layout={layout} // Grid layout state
+        cols={7} // Number of columns in the grid
+        rowHeight={100} // Height of each row in pixels
+        width={800} // Total grid width
+        onLayoutChange={(newLayout) => setLayout(newLayout)} // Update layout state
         onResize={handleResize} // Realtime font size updates
-        isResizable
-        isDraggable
-        preventCollision={true}
-        compactType={null}
+        isResizable // Enable resizing
+        isDraggable // Enable dragging
+        preventCollision={true} // Prevents overlapping during resize/drag
+        compactType={null} // Disables auto-compaction of items
       >
         <div
           key="main"
@@ -65,6 +60,7 @@ const ResizableGrid = ({ data = [] }) => {
               </div>
             </div>
           ))}
+          {/* Resize handle */}
           <span className="react-resizable-handle absolute bottom-1 right-1 w-5 h-5 bg-gray-200 rounded-full border border-gray-400 cursor-se-resize"></span>
         </div>
       </ReactGridLayout>
