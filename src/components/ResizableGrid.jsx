@@ -15,6 +15,13 @@ const ResizableGrid = ({ data = [] }) => {
     // Value font size scales dynamically with both width and height
     const newValueFontSize = Math.max(12, newItem.w * 6, newItem.h * 10);
     setValueFontSize(newValueFontSize);
+
+//     const newLabelFontSize = Math.max(8, newItem.w * 3); // Allow smaller sizes
+// setLabelFontSize(newLabelFontSize);
+
+// const newValueFontSize = Math.max(8, newItem.w * 4, newItem.h * 6); // Scale with height too
+// setValueFontSize(newValueFontSize);
+
   };
 
   return (
@@ -22,7 +29,7 @@ const ResizableGrid = ({ data = [] }) => {
       <ReactGridLayout
         className="layout"
         layout={layout}
-        cols={6}
+        cols={7}
         rowHeight={100}
         width={800}
         onLayoutChange={(newLayout) => setLayout(newLayout)}
@@ -34,12 +41,12 @@ const ResizableGrid = ({ data = [] }) => {
       >
         <div
           key="main"
-          className="flex flex-wrap items-center justify-center border bg-[#080808] rounded-lg p-8 text-center min-h-fit"
+          className="flex flex-wrap items-center justify-center border bg-[#080808] rounded-lg p-2 text-center min-h-fit max-w-fit"
         >
           {data.map((item, index) => (
             <div
               key={index}
-              className="p-2 m-1 bg-[#383838] text-[#E8E8E8] rounded-md flex flex-col items-center"
+              className="p-5 m-1 bg-[#383838] text-[#E8E8E8] rounded-md flex flex-col items-center"
             >
               {/* Label with max 32px font size */}
               <div
