@@ -4,7 +4,7 @@ This project involves building a dynamic, resizable grid layout using React Grid
 
 ### Loom Video Demo
 
-[Watch the Demo](https://www.loom.com/share/51f58a39a63d47ffbe3c367efbdcfc45?sid=f6274147-f333-4363-914e-76633ade364f)
+[Watch the Demo](https://www.loom.com/share/5962c1c3c626484fae8c90b087d5f2a0?sid=1f931ae3-d80a-4b5d-b9ad-57fc4e3f314f)
 
 ## Built With
 
